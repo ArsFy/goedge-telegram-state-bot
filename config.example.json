@@ -1,0 +1,8 @@
+{
+    "host": "http://goedge.test.com:8080",
+    "auth": {
+        "type": "admin",
+        "accessKeyId": "",
+        "accessKey": ""
+    }
+}
