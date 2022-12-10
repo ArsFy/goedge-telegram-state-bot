@@ -54,7 +54,7 @@ def d15(cid: int):
     plt.rcParams['axes.unicode_minus'] = False
 
     imgBuf = io.BytesIO()
-    plt.savefig(imgBuf, format='webp')
+    plt.savefig(imgBuf, format='jpeg')
     return imgBuf.getvalue()
 
 def h24(cid: int):
@@ -106,7 +106,7 @@ def h24(cid: int):
     plt.rcParams['axes.unicode_minus'] = False
 
     imgBuf = io.BytesIO()
-    plt.savefig(imgBuf, format='webp')
+    plt.savefig(imgBuf, format='jpeg')
     return imgBuf.getvalue()
 
 def cpuNode(cid: int):
@@ -134,7 +134,7 @@ def cpuNode(cid: int):
     plt.rcParams['axes.unicode_minus'] = False
 
     imgBuf = io.BytesIO()
-    plt.savefig(imgBuf, format='webp')
+    plt.savefig(imgBuf, format='jpeg')
     return imgBuf.getvalue()
 
 def memoryNode(cid: int):
@@ -162,7 +162,7 @@ def memoryNode(cid: int):
     plt.rcParams['axes.unicode_minus'] = False
 
     imgBuf = io.BytesIO()
-    plt.savefig(imgBuf, format='webp')
+    plt.savefig(imgBuf, format='jpeg')
     return imgBuf.getvalue()
     
 def loadNode(cid: int):
