@@ -121,7 +121,7 @@ def cpuNode(cid: int):
 
     plt.figure(figsize=(14, 6))
 
-    plt.fill_between(timeList, cpuNode, label="CPU")
+    plt.plot(timeList, cpuNode, label="CPU")
     for i in range(0, len(cpuNode)):
         if cpuNode[i] != 0:
             plt.text(i - 0.5, cpuNode[i] + cpuNode[i] * 0.05, "{}%".format(round(cpuNode[i], 1)), fontdict={'size': 7})
@@ -149,10 +149,10 @@ def memoryNode(cid: int):
 
     plt.figure(figsize=(15, 5))
 
-    plt.fill_between(timeList, memoryNode, label="Memory")
+    plt.plot(timeList, memoryNode, label="Memory")
     for i in range(0, len(memoryNode)):
         if memoryNode[i] != 0:
-            plt.text(i - 0.5, memoryNode[i] + memoryNode[i] * 0.05, "{}%".format(round(memoryNode[i], 1)), fontdict={'size': 6})
+            plt.text(i - 0.5, memoryNode[i] + memoryNode[i] * 0.01, "{}%".format(round(memoryNode[i], 1)), fontdict={'size': 6})
 
     plt.xticks(rotation=320)
     plt.grid(True)
@@ -172,13 +172,12 @@ def loadNode(cid: int):
     loadNode = []
 
     for i in board["loadNodeValues"]:
-        print(json.loads(base64.b64decode(i['valueJSON'])))
         loadNode.append(json.loads(base64.b64decode(i['valueJSON']))['load1m'])
         timeList.append(time.strftime("%H:%M", time.localtime(i['createdAt'])))
 
     plt.figure(figsize=(18, 10))
 
-    plt.fill_between(timeList, loadNode, label="Load")
+    plt.plot(timeList, loadNode, label="Load")
     for i in range(0, len(loadNode)):
         if loadNode[i] != 0:
             plt.text(i - 0.5, loadNode[i] + loadNode[i] * 0.05, round(loadNode[i], 1), fontdict={'size': 7})

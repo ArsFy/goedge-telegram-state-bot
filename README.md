@@ -8,6 +8,17 @@
 
 这是一个适用 GoEdge API 的 Telegram Bot，它可以用于查询数据，和一些简单管理。
 
+## 开发进度
+
+- `/start` 关于这个 Bot
+- `/goedge` GoEdge 的简要资讯
+- `/d15` 15 天流量统计图
+- `/h24` 24 小时流量统计图
+- `/node_cpu` 集群节点 CPU 占用统计图
+- `/node_memory` 集群节点记忆体占用统计图
+- `/node_load` 集群节点负载统计图
+- `/nodelist` 列出所有节点
+
 ## Start
 
 ### 1. 配置 GoEdge API

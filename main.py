@@ -26,7 +26,7 @@ logging.basicConfig(
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text="这是一个适用于 GoEdge CDN 的 Telegram Bot，它可以用于简单管理/查询状态\n\n/start 关于这个 Bot\n/goedge GoEdge 的简要资讯\n/d15 15 天流量统计图\n/h24 24 小时流量统计图\n/node_cpu 集群节点 CPU 占用统计图\n/node_memory 集群节点记忆体占用统计图\n/node_load 集群节点负载统计图\n\nGitHub: https://github.com/ArsFy/goedge-telegram-state-bot"
+        text="这是一个适用于 GoEdge CDN 的 Telegram Bot，它可以用于简单管理/查询状态\n\n/start 关于这个 Bot\n/goedge GoEdge 的简要资讯\n/d15 15 天流量统计图\n/h24 24 小时流量统计图\n/node_cpu 集群节点 CPU 占用统计图\n/node_memory 集群节点记忆体占用统计图\n/node_load 集群节点负载统计图\n/nodelist 列出所有节点\n\nGitHub: https://github.com/ArsFy/goedge-telegram-state-bot"
     )
 
 async def goedge_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -88,6 +88,16 @@ async def node_load(update: Update, context: ContextTypes.DEFAULT_TYPE):
         photo=chart.loadNode(config['cluster_id'])
     )
 
+async def node_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    nodelist = []
+    for i in goedge.findAllEnabledNodesWithNodeClusterId(config['cluster_id']):
+        nodelist.append("{} ID: {} Name: {}".format("🟢" if i["isOn"] else "🔴", i['id'], i['name']))
+    await context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        reply_to_message_id=update.message.message_id,
+        text="\n".join(nodelist)
+    )
+
 if __name__ == '__main__':
     application = ApplicationBuilder().token(config["bot_token"]).build()
     
@@ -98,6 +108,6 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler('node_cpu', node_cpu))
     application.add_handler(CommandHandler('node_memory', node_memory))
     application.add_handler(CommandHandler('node_load', node_load))
-
+    application.add_handler(CommandHandler('nodelist', node_list))
 
     application.run_polling()
