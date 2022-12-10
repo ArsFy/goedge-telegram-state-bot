@@ -1,4 +1,4 @@
-import requests, json, time, sys
+import requests, json, time, sys, base64
 
 token = {"token": "", "expiresAt": -1}
 server = ""
@@ -36,7 +36,10 @@ def requestApi(path: str, data: any):
         data=json.dumps(data),
     ).json()
 
-def composeServerStatNodeClusterBoard():
+def apiNodeStatus():
+    return json.loads(base64.b64decode(requestApi("/APINodeService/findCurrentAPINode", {})["data"]["apiNode"]["statusJSON"]))
+
+def composeServerStatNodeClusterBoard(cid: int):
     return requestApi("/ServerStatBoardService/composeServerStatNodeClusterBoard", {
-        "nodeClusterId": 1
+        "nodeClusterId": cid
     })["data"]

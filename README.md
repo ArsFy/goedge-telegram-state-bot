@@ -1,23 +1,23 @@
 # Goedge Telegram Bot
 
-> Goedge 是一個開源的 CDN 集羣管理套件：https://github.com/TeaOSLab/EdgeAdmin
+> GoEdge 是一个开源的 CDN 集群管理套件：https://github.com/TeaOSLab/EdgeAdmin
 
-這是一個適用 Goedge API 的 Telegram Bot，它可以用於查詢數據，和一些簡單管理。
+![](https://img.shields.io/badge/license-MIT-blue)
+![](https://img.shields.io/badge/Python->=3.7-blue)
+![](https://img.shields.io/badge/PRs-welcome-green)
 
-## 開始
+这是一个适用 GoEdge API 的 Telegram Bot，它可以用于查询数据，和一些简单管理。
+
+## Start
 
 ### 1. 配置 GoEdge API
 
-請閱讀官方 Docs 啓用 HTTP API: https://goedge.cn/docs/API/Settings.md
+请阅读官方 Docs 启用 HTTP API: https://goedge.cn/docs/API/Settings.md
 
-### 2. 創建 GoEdge AccessKey / AccessKeyId
+### 2. 创建 GoEdge AccessKey / AccessKeyId
 
-- 創建新系統用戶（可選）
-- 配置必要權限（可選）
-    - 看板
-    - 網站服務
-    - 邊緣節點
-- 創建 API AccessKey
+- 创建新系统用户（可选）
+- 创建 API AccessKey
 
 ![image](https://user-images.githubusercontent.com/93700457/206788246-a784e297-0b5f-46b6-9416-78b9deb760e1.png)
 
